@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BubblyBot — Emotion Aware Chat + Live Detection</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- face-api.js (TF.js backend) CDN -->
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>BubblyBot</h1>
+    <p class="subtitle">Emotion-aware chatbot + live camera (privacy-first — everything runs in your browser).</p>
+  </header>
+
+  <main>
+    <section id="camera-section">
+      <div id="video-wrap">
+        <video id="video" autoplay muted playsinline></video>
+        <canvas id="overlay"></canvas>
+      </div>
+      <div id="status">Loading models… please wait.</div>
+      <div id="emotion-display">—</div>
+    </section>
+
+    <section id="chat-section">
+      <div id="chat-header">
+        <img src="assets/chatbot-icon.png" alt="BubblyBot" id="bot-icon" onerror="this.style.display='none'"/>
+        <div>
+          <h2>BubblyBot</h2>
+          <small id="bot-sub">Calm, caring, a little playful</small>
+        </div>
+      </div>
+
+      <div id="chat-window">
+        <div class="msg bot">Hello! I'm BubblyBot. I can see your mood and chat with you — press the microphone or type a message.</div>
+      </div>
+
+      <form id="chat-form" action="javascript:;">
+        <input id="chat-input" type="text" placeholder="Say something..." autocomplete="off" />
+        <button id="send-btn" type="submit">Send</button>
+        <button id="voice-btn" type="button" title="Use voice">🎤</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <small>Local demo • No images are uploaded. Models run in your browser.</small>
+  </footer>
+</body>
+</html>
